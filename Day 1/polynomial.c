@@ -70,6 +70,27 @@ void add(int m, int n)
     }
 }
 
+void multiply(int m, int n)
+{
+    int i = 0, j = 0, k = 0;
+    struct poly prod[MAX * MAX];
+
+    for (i = 0; i < m; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            prod[k].coeff = p1[i].coeff * p2[j].coeff;
+            prod[k].exp = p1[i].exp + p2[j].exp;
+            k++;
+        }
+    }
+    printf("Final Polynomial : ");
+    for (i = 0; i < k; i++)
+    {
+        printf("%dx^%d  ", prod[i].coeff, prod[i].exp);
+    }
+}
+
 int main()
 {
     int m, n, i, opt;
@@ -94,7 +115,7 @@ int main()
             add(m, n);
             break;
         case 2:
-            /* code */
+            multiply(m, n);
             break;
 
         default:
