@@ -93,7 +93,7 @@ void multiply(int m, int n)
         }
     }
     printf("Final Polynomial : ");
-    for (i = 0; i < MAX * MAX; i++)
+    for (i = 0; i <= p1[0].exp + p2[0].exp; i++)
     {
         if (prod[i].coeff != 0)
         {
