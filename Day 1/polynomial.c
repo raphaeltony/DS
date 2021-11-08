@@ -57,7 +57,7 @@ void add(int m, int n)
             //copying first polynomial
             while (i < m)
             {
-                sum[k++] = p2[i++];
+                sum[k++] = p1[i++];
             }
             break;
         }
@@ -74,7 +74,7 @@ void multiply(int m, int n)
 {
     int i = 0, j = 0, k = 0;
     struct poly prod[MAX * MAX];
-    //initializing
+    //initializing with values 0
     for (i = 0; i < MAX * MAX; i++)
     {
         prod[i].coeff = 0;
@@ -88,6 +88,7 @@ void multiply(int m, int n)
             // prod[k].coeff = p1[i].coeff * p2[j].coeff;
             // prod[k].exp = p1[i].exp + p2[j].exp;
             // k++;
+
             prod[p1[i].exp + p2[j].exp].coeff += p1[i].coeff * p2[j].coeff;
             prod[p1[i].exp + p2[j].exp].exp = p1[i].exp + p2[j].exp;
         }
