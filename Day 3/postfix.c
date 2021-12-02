@@ -16,9 +16,10 @@ void push(char item) {
 }
 
 char pop() {
-    if (top == -1)
+    if (top == -1) {
+        printf("Underflow. Invalid Expression");
         return '$';
-    else
+    } else
         return stack[top--];
 }
 
@@ -89,6 +90,8 @@ int main() {
     printf("\nEnter Infix Expression :\n");
     scanf("%s", infix);
 
+    push('(');
+    strcat(infix, ")");
     while (infix[i] != '\0') {
         if (infix[i] == '(') {
             push('(');
@@ -112,12 +115,6 @@ int main() {
             j++;
         }
         i++;
-    }
-    char ele = pop();
-    while (ele != '$') {
-        postfix[j++] = ' ';
-        postfix[j++] = ele;
-        ele = pop();
     }
     postfix[j] = '\0';
     printf("Postfix Expression : %s", postfix);
