@@ -32,18 +32,20 @@ void insertCQ(int n) {
         cq[crear] = n;
         if (cfront == -1) cfront++;
     }
+    displayQ(cq, cfront, crear);
 }
 
 void deleteCQ() {
     if (cfront == -1) {
         printf("CircularQueue is Empty\n");
     } else if (cfront == crear) {
-        printf("Deleted element with value %d", cq[cfront]);
+        printf("Deleted element with value %d\n", cq[cfront]);
         cfront = crear = -1;
     } else {
-        printf("Deleted element with value %d", cq[cfront]);
+        printf("Deleted element with value %d\n", cq[cfront]);
         cfront = (cfront + 1) % MAX;
     }
+    displayQ(cq, cfront, crear);
 }
 
 void insertCQF(int n) {
@@ -59,21 +61,23 @@ void insertCQF(int n) {
         }
         cq[cfront] = n;
     }
+    displayQ(cq, cfront, crear);
 }
 
 void deleteCQR() {
     if (crear == -1) {
         printf("CircularQueue is Empty\n");
     } else if (cfront == crear) {
-        printf("Deleted element with value %d", cq[crear]);
+        printf("Deleted element with value %d\n", cq[crear]);
         cfront = crear = -1;
     } else {
-        printf("Deleted element with value %d", cq[crear]);
+        printf("Deleted element with value %d\n", cq[crear]);
         if (crear == 0) {
             crear = MAX - 1;
         } else
             crear--;
     }
+    displayQ(cq, cfront, crear);
 }
 
 int main() {
